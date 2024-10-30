@@ -1,3 +1,4 @@
+import { formatLogRecords } from "@/utils/logs";
 import { IExportLogsServiceRequest } from "@opentelemetry/otlp-transformer";
 
 export const getLogs = async () => {
@@ -9,7 +10,7 @@ export const getLogs = async () => {
     throw new Error(response.statusText);
   }
 
-  const data = await response.json();
+  const rawData = (await response.json()) as IExportLogsServiceRequest;
 
-  return data as IExportLogsServiceRequest;
+  return formatLogRecords(rawData);
 };
