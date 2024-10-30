@@ -1,0 +1,11 @@
+.tableRow {
+  cursor: pointer;
+}
+
+.tableRow:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tableRow:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

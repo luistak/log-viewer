@@ -4,7 +4,7 @@ import { getLogs } from "@/services/get-logs";
 
 export const dynamic = "force-dynamic";
 
-import styles from "./styles.module.scss";
+import styles from "./styles.module.css";
 
 export default async function Home() {
   const [logRecords, resourceLogs] = await getLogs();

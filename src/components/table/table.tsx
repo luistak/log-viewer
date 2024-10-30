@@ -13,7 +13,7 @@ import {
 import { LogRecord } from "@/utils/logs";
 import { LogDetails } from "../log-details";
 
-import styles from "./styles.module.scss";
+import styles from "./styles.module.css";
 
 type Props = {
   logRecords: LogRecord[];
