@@ -17,10 +17,6 @@ nvm use             # change the node version to the supported
 npm i               # install local dependencies
 ```
 
-<!-- TODO: finish docs later -->
-
-> 🤔 While the project is being setup, why don't you look at our [Docs](/docs/....md)?
-
 ## Development 💻
 
 ```sh
@@ -38,6 +34,11 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Table of Contents
+# Next Steps
 
-<!-- TODO: -->
+Given the short time to create this app here is the following features and enhancements i would do:
+
+1. Styling: Enhance the current experience aligning with the company design team adapting the headless ui to follow proper guidelines;
+2. Customize 404 and error boundaries styles;
+3. Discuss modularization and next steps of this PoC, wether we should separate the code by features or specific domains;
+4. Create an e2e test covering the major features without mocking any request.
