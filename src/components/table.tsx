@@ -11,6 +11,7 @@ import {
 } from "@tanstack/react-table";
 
 import { LogRecord } from "@/utils/logs";
+import { LogDetails } from "./log-details";
 
 type Props = {
   logRecords: LogRecord[];
@@ -44,11 +45,6 @@ export const LogsTable = ({ logRecords, resourceLogs }: Props) => {
     getCoreRowModel: getCoreRowModel(),
   });
 
-  const handleLogClick = (logRecord: LogRecord) => () => {
-    const resourceLog = resourceLogs[logRecord.resourceLogIndex];
-    console.log({ logRecord, resourceLog });
-  };
-
   return (
     <Flex direction="column" gap="2">
       <Table.Root>
@@ -71,13 +67,19 @@ export const LogsTable = ({ logRecords, resourceLogs }: Props) => {
 
         <Table.Body>
           {table.getRowModel().rows.map((row) => (
-            <Table.Row key={row.id} onClick={handleLogClick(row.original)}>
-              {row.getVisibleCells().map((cell) => (
-                <Table.Cell key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </Table.Cell>
-              ))}
-            </Table.Row>
+            <LogDetails
+              key={row.id}
+              logRecord={row.original}
+              resourceLog={resourceLogs[row.original.resourceLogIndex]}
+            >
+              <Table.Row>
+                {row.getVisibleCells().map((cell) => (
+                  <Table.Cell key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </Table.Cell>
+                ))}
+              </Table.Row>
+            </LogDetails>
           ))}
         </Table.Body>
       </Table.Root>
