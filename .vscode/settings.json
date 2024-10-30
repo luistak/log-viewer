@@ -1,0 +1,23 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "search.exclude": {
+    "**/.vscode": true,
+    "**/build": true,
+    "**/coverage": true,
+    "**/lint": true,
+    "**/node_modules": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true
+  },
+  "files.associations": {
+    "**/.importsortrc": "json"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
