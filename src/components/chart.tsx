@@ -1,7 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
-
 import { Histogram } from "@ant-design/plots";
 import { LogRecord } from "@/utils/logs";
 import { unixNanoToDate } from "@/utils/unix-nano-to-date";
@@ -12,20 +10,8 @@ type Props = {
 };
 
 export const Chart = ({ logRecords }: Props) => {
-  const data = useMemo(
-    () =>
-      logRecords.map((log) => ({
-        ...log,
-        day: log.timeDate.getUTCDay(),
-        date: log.timeDate.getUTCDate(),
-        hours: log.timeDate.getUTCHours(),
-        minutes: log.timeDate.getUTCMinutes(),
-      })),
-    [logRecords]
-  );
-
   const config = {
-    data,
+    data: logRecords,
     style: {
       inset: 0.5,
     },
