@@ -88,4 +88,13 @@ describe("<LogsPage />", () => {
     const SourceTab = await screen.findByRole("tab", { name: /raw source/i });
     expect(SourceTab).toBeInTheDocument();
   });
+
+  it("should render the histogram chart accordingly", async () => {
+    render(await Page());
+
+    expect(screen.getByTestId("logs-histogram")).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(`Showing ${logRecords.length} Log Records`))
+    ).toBeInTheDocument();
+  });
 });

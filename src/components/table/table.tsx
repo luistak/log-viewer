@@ -11,7 +11,9 @@ import {
 } from "@tanstack/react-table";
 
 import { LogRecord } from "@/utils/logs";
-import { LogDetails } from "./log-details";
+import { LogDetails } from "../log-details";
+
+import styles from "./styles.module.scss";
 
 type Props = {
   logRecords: LogRecord[];
@@ -72,7 +74,7 @@ export const LogsTable = ({ logRecords, resourceLogs }: Props) => {
               logRecord={row.original}
               resourceLog={resourceLogs[row.original.resourceLogIndex]}
             >
-              <Table.Row>
+              <Table.Row className={styles.tableRow}>
                 {row.getVisibleCells().map((cell) => (
                   <Table.Cell key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
